@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Główna strona</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="cf-config.js" defer></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+    <script src="guard.js" defer></script>
   </head>
   <body>
     <main class="home">
@@ -12,6 +15,19 @@
       <p class="subtitle">Wybierz dział, w którym chcesz ćwiczyć.</p>
 
       <nav class="menu">
+        <a href="elektronika.html" data-protected-link="1">Elektronika</a>
+        <a href="figury.html" data-protected-link="1">Figury geometryczne</a>
+        <a href="ulamki.html" data-protected-link="1">Ułamki</a>
+      </nav>
+    </main>
+
+    <div id="captchaModal" class="captcha-modal" aria-hidden="true">
+      <div class="captcha-card">
+        <h2>Weryfikacja Cloudflare</h2>
+        <p id="captchaInfo">Potwierdź, że nie jesteś botem.</p>
+        <div id="turnstileWidget"></div>
+      </div>
+    </div>
         <a href="elektronika.html">Elektronika</a>
         <a href="figury.html">Figury geometryczne</a>
         <a href="ulamki.html">Ułamki</a>
