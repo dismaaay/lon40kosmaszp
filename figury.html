@@ -1,98 +1,91 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Figury geometryczne</title>
-    <link href="style.css" rel="stylesheet" type="text/css">
-    <script src="funkcje.js"></script>
-</head>
+    <link href="stylefig.css" rel="stylesheet" type="text/css" />
+    <script src="funkcje.js" defer></script>
+  </head>
 
-<body onload="hideWyniki()">
+  <body>
+    <div id="container">
+      <h1>Figury geometryczne</h1>
+      <p class="opis">Podaj wartości i kliknij „Oblicz”.</p>
 
-<div id="container">
-    <h1>Figury geometryczne</h1>
+      <div id="fig1">
+        <fieldset class="karta">
+          <legend>Prostokąt</legend>
 
-    <div id="fig1">
+          <label for="pr_a">Bok a</label>
+          <input type="number" id="pr_a" step="any" />
 
-        <!-- PROSTOKĄT -->
-        <fieldset id="f1">
-            <legend>Prostokąt</legend>
+          <label for="pr_b">Bok b</label>
+          <input type="number" id="pr_b" step="any" />
 
-            <label> Bok a = </label><br>
-            <input type="text" id="pr_a"><br>
+          <input type="button" value="Oblicz" onclick="obliczPr()" />
 
-            <label> Bok b = </label><br>
-            <input type="text" id="pr_b"><br><br>
-
-            <input type="button" value="Oblicz" onclick="obliczPr()"><br><br>
-
-            <p id="p_polePr"></p>
-            <p id="p_obwPr"></p>
+          <p id="p_polePr" class="wynik"></p>
+          <p id="p_obwPr" class="wynik"></p>
         </fieldset>
 
-        <!-- TRÓJKĄT -->
-        <fieldset id="f1">
-            <legend>Trójkąt</legend>
+        <fieldset class="karta">
+          <legend>Trójkąt</legend>
 
-            <label> Bok a = </label><br>
-            <input type="text" id="tr_a"><br>
+          <label for="tr_a">Bok a</label>
+          <input type="number" id="tr_a" step="any" />
 
-            <label> Bok b = </label><br>
-            <input type="text" id="tr_b"><br>
+          <label for="tr_b">Bok b</label>
+          <input type="number" id="tr_b" step="any" />
 
-            <label> Bok c = </label><br>
-            <input type="text" id="tr_c"><br>
+          <label for="tr_c">Bok c</label>
+          <input type="number" id="tr_c" step="any" />
 
-            <label> Wysokość h = </label><br>
-            <input type="text" id="tr_h"><br><br>
+          <label for="tr_h">Wysokość h</label>
+          <input type="number" id="tr_h" step="any" />
 
-            <input type="button" value="Oblicz" onclick="obliczTrojkat()"><br><br>
+          <input type="button" value="Oblicz" onclick="obliczTrojkat()" />
 
-            <p id="p_poleTr"></p>
-            <p id="p_obwTr"></p>
+          <p id="p_poleTr" class="wynik"></p>
+          <p id="p_obwTr" class="wynik"></p>
         </fieldset>
 
-        <!-- KOŁO -->
-        <fieldset id="f1">
-            <legend>Koło</legend>
+        <fieldset class="karta">
+          <legend>Koło</legend>
 
-            <label> Promień r = </label><br>
-            <input type="text" id="k_r"><br><br>
+          <label for="k_r">Promień r</label>
+          <input type="number" id="k_r" step="any" />
 
-            <input type="button" value="Oblicz" onclick="obliczKolo()"><br><br>
+          <input type="button" value="Oblicz" onclick="obliczKolo()" />
 
-            <p id="p_poleK"></p>
-            <p id="p_obwK"></p>
+          <p id="p_poleK" class="wynik"></p>
+          <p id="p_obwK" class="wynik"></p>
         </fieldset>
 
-        <!-- TRAPEZ -->
-        <fieldset id="f1">
-            <legend>Trapez</legend>
+        <fieldset class="karta">
+          <legend>Trapez</legend>
 
-            <label> Podstawa a = </label><br>
-            <input type="text" id="t_a"><br>
+          <label for="t_a">Podstawa a</label>
+          <input type="number" id="t_a" step="any" />
 
-            <label> Podstawa b = </label><br>
-            <input type="text" id="t_b"><br>
+          <label for="t_b">Podstawa b</label>
+          <input type="number" id="t_b" step="any" />
 
-            <label> Bok c = </label><br>
-            <input type="text" id="t_c"><br>
+          <label for="t_c">Bok c</label>
+          <input type="number" id="t_c" step="any" />
 
-            <label> Bok d = </label><br>
-            <input type="text" id="t_d"><br>
+          <label for="t_d">Bok d</label>
+          <input type="number" id="t_d" step="any" />
 
-            <label> Wysokość h = </label><br>
-            <input type="text" id="t_h"><br><br>
+          <label for="t_h">Wysokość h</label>
+          <input type="number" id="t_h" step="any" />
 
-            <input type="button" value="Oblicz" onclick="obliczTrapez()"><br><br>
+          <input type="button" value="Oblicz" onclick="obliczTrapez()" />
 
-            <p id="p_poleT"></p>
-            <p id="p_obwT"></p>
+          <p id="p_poleT" class="wynik"></p>
+          <p id="p_obwT" class="wynik"></p>
         </fieldset>
-
+      </div>
     </div>
-</div>
-
-</body>
+  </body>
 </html>
-

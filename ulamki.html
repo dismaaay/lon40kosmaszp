@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dodawanie i odejmowanie ułamków</title>
+    <link rel="stylesheet" href="style_ulamki.css" />
+    <script src="ulamki.js" defer></script>
+  </head>
+  <body>
+    <main class="wrapper">
+      <h1>Ułamki zwykłe</h1>
+      <p>Wpisz licznik i mianownik dla dwóch ułamków.</p>
+
+      <section class="blok">
+        <h2>Dodawanie: X / X + Y / Y</h2>
+        <div class="row">
+          <div class="fraction">
+            <input type="number" id="add_n1" placeholder="licznik" />
+            <span>/</span>
+            <input type="number" id="add_d1" placeholder="mianownik" />
+          </div>
+          <span class="operator">+</span>
+          <div class="fraction">
+            <input type="number" id="add_n2" placeholder="licznik" />
+            <span>/</span>
+            <input type="number" id="add_d2" placeholder="mianownik" />
+          </div>
+          <button onclick="dodajUlamki()">Oblicz</button>
+        </div>
+        <p id="add_result" class="result"></p>
+      </section>
+
+      <section class="blok">
+        <h2>Odejmowanie: X / X - Y / Y</h2>
+        <div class="row">
+          <div class="fraction">
+            <input type="number" id="sub_n1" placeholder="licznik" />
+            <span>/</span>
+            <input type="number" id="sub_d1" placeholder="mianownik" />
+          </div>
+          <span class="operator">−</span>
+          <div class="fraction">
+            <input type="number" id="sub_n2" placeholder="licznik" />
+            <span>/</span>
+            <input type="number" id="sub_d2" placeholder="mianownik" />
+          </div>
+          <button onclick="odejmijUlamki()">Oblicz</button>
+        </div>
+        <p id="sub_result" class="result"></p>
+      </section>
+    </main>
+  </body>
+</html>

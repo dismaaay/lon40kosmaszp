@@ -1,30 +1,95 @@
-#container {
-    background-color: aliceblue;
-    width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 15px;
+:root {
+  --bg: #eff4ff;
+  --card: #ffffff;
+  --text: #22304a;
+  --accent: #4063d8;
+  --border: #cfd9f4;
+  --ok: #1c7d4d;
 }
 
-#fig1 {
-    width: 500px;
-    margin: 0 auto;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #dfe8ff 0%, var(--bg) 35%);
+}
+
+#container {
+  width: min(1100px, 94vw);
+  margin: 2rem auto;
 }
 
 h1 {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-                 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 24px;
-    font-style: italic;
-    text-align: center;
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
-#f1 {
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 20px;
+.opis {
+  text-align: center;
+  color: #506080;
+  margin-bottom: 1.5rem;
 }
 
-p {
-    font-weight: bold;
+#fig1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.karta {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(21, 33, 66, 0.1);
+}
+
+legend {
+  font-weight: 700;
+  color: #30479f;
+  padding: 0 0.4rem;
+}
+
+label {
+  display: block;
+  margin-top: 0.7rem;
+  font-size: 0.95rem;
+}
+
+input[type="number"] {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border: 1px solid #c3cce8;
+  border-radius: 8px;
+}
+
+input[type="button"] {
+  width: 100%;
+  margin-top: 1rem;
+  border: none;
+  background: var(--accent);
+  color: white;
+  padding: 0.6rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+input[type="button"]:hover {
+  filter: brightness(0.92);
+}
+
+.wynik {
+  font-weight: 600;
+  color: var(--ok);
+  margin-bottom: 0;
+}
+
+.blad {
+  color: #b42318;
 }
