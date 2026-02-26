@@ -1,82 +1,77 @@
-function obliczPr() {
+function pokazWynik(idPole, idObw, tekstPole, tekstObw, czyBlad = false) {
+  const poleEl = document.getElementById(idPole);
+  const obwEl = document.getElementById(idObw);
 
-    let a = parseFloat(document.getElementById('pr_a').value);
-    let b = parseFloat(document.getElementById('pr_b').value);
+  poleEl.textContent = tekstPole;
+  obwEl.textContent = tekstObw;
 
-    let pole = a * b;
-    let obw = 2 * a + 2 * b;
+  poleEl.style.display = 'block';
+  obwEl.style.display = 'block';
 
-    document.getElementById('p_polePr').innerHTML = "Pole prostokąta = " + pole;
-    document.getElementById('p_obwPr').innerHTML = "Obwód prostokąta = " + obw;
-
-    document.getElementById('p_polePr').style.display = 'block';
-    document.getElementById('p_obwPr').style.display = 'block';
+  poleEl.classList.toggle('blad', czyBlad);
+  obwEl.classList.toggle('blad', czyBlad);
 }
 
+function pobierzLiczbe(id) {
+  return parseFloat(document.getElementById(id).value);
+}
+
+function obliczPr() {
+  const a = pobierzLiczbe('pr_a');
+  const b = pobierzLiczbe('pr_b');
+
+  if (Number.isNaN(a) || Number.isNaN(b) || a <= 0 || b <= 0) {
+    pokazWynik('p_polePr', 'p_obwPr', 'Podaj dodatnie liczby.', '');
+    return;
+  }
+
+  const pole = a * b;
+  const obw = 2 * a + 2 * b;
+  pokazWynik('p_polePr', 'p_obwPr', `Pole prostokąta = ${pole.toFixed(2)}`, `Obwód prostokąta = ${obw.toFixed(2)}`);
+}
 
 function obliczTrojkat() {
+  const a = pobierzLiczbe('tr_a');
+  const b = pobierzLiczbe('tr_b');
+  const c = pobierzLiczbe('tr_c');
+  const h = pobierzLiczbe('tr_h');
 
-    let a = parseFloat(document.getElementById('tr_a').value);
-    let b = parseFloat(document.getElementById('tr_b').value);
-    let c = parseFloat(document.getElementById('tr_c').value);
-    let h = parseFloat(document.getElementById('tr_h').value);
+  if ([a, b, c, h].some((val) => Number.isNaN(val) || val <= 0)) {
+    pokazWynik('p_poleTr', 'p_obwTr', 'Podaj dodatnie liczby.', '');
+    return;
+  }
 
-    let pole = (a * h) / 2;
-    let obw = a + b + c;
-
-    document.getElementById('p_poleTr').innerHTML = "Pole trójkąta = " + pole;
-    document.getElementById('p_obwTr').innerHTML = "Obwód trójkąta = " + obw;
-
-    document.getElementById('p_poleTr').style.display = 'block';
-    document.getElementById('p_obwTr').style.display = 'block';
+  const pole = (a * h) / 2;
+  const obw = a + b + c;
+  pokazWynik('p_poleTr', 'p_obwTr', `Pole trójkąta = ${pole.toFixed(2)}`, `Obwód trójkąta = ${obw.toFixed(2)}`);
 }
-
 
 function obliczKolo() {
+  const r = pobierzLiczbe('k_r');
 
-    let r = parseFloat(document.getElementById('k_r').value);
+  if (Number.isNaN(r) || r <= 0) {
+    pokazWynik('p_poleK', 'p_obwK', 'Podaj dodatnią liczbę.', '');
+    return;
+  }
 
-    let pole = Math.PI * r * r;
-    let obw = 2 * Math.PI * r;
-
-    document.getElementById('p_poleK').innerHTML = "Pole koła = " + pole.toFixed(2);
-    document.getElementById('p_obwK').innerHTML = "Obwód koła = " + obw.toFixed(2);
-
-    document.getElementById('p_poleK').style.display = 'block';
-    document.getElementById('p_obwK').style.display = 'block';
+  const pole = Math.PI * r * r;
+  const obw = 2 * Math.PI * r;
+  pokazWynik('p_poleK', 'p_obwK', `Pole koła = ${pole.toFixed(2)}`, `Obwód koła = ${obw.toFixed(2)}`);
 }
-
 
 function obliczTrapez() {
+  const a = pobierzLiczbe('t_a');
+  const b = pobierzLiczbe('t_b');
+  const c = pobierzLiczbe('t_c');
+  const d = pobierzLiczbe('t_d');
+  const h = pobierzLiczbe('t_h');
 
-    let a = parseFloat(document.getElementById('t_a').value);
-    let b = parseFloat(document.getElementById('t_b').value);
-    let c = parseFloat(document.getElementById('t_c').value);
-    let d = parseFloat(document.getElementById('t_d').value);
-    let h = parseFloat(document.getElementById('t_h').value);
+  if ([a, b, c, d, h].some((val) => Number.isNaN(val) || val <= 0)) {
+    pokazWynik('p_poleT', 'p_obwT', 'Podaj dodatnie liczby.', '');
+    return;
+  }
 
-    let pole = ((a + b) * h) / 2;
-    let obw = a + b + c + d;
-
-    document.getElementById('p_poleT').innerHTML = "Pole trapezu = " + pole;
-    document.getElementById('p_obwT').innerHTML = "Obwód trapezu = " + obw;
-
-    document.getElementById('p_poleT').style.display = 'block';
-    document.getElementById('p_obwT').style.display = 'block';
-}
-
-
-function hideWyniki() {
-
-    document.getElementById('p_polePr').style.display = 'none';
-    document.getElementById('p_obwPr').style.display = 'none';
-
-    document.getElementById('p_poleTr').style.display = 'none';
-    document.getElementById('p_obwTr').style.display = 'none';
-
-    document.getElementById('p_poleK').style.display = 'none';
-    document.getElementById('p_obwK').style.display = 'none';
-
-    document.getElementById('p_poleT').style.display = 'none';
-    document.getElementById('p_obwT').style.display = 'none';
+  const pole = ((a + b) * h) / 2;
+  const obw = a + b + c + d;
+  pokazWynik('p_poleT', 'p_obwT', `Pole trapezu = ${pole.toFixed(2)}`, `Obwód trapezu = ${obw.toFixed(2)}`);
 }
