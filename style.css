@@ -61,3 +61,35 @@ h1 {
   transform: translateY(-1px);
   background: linear-gradient(130deg, var(--accent-dark), var(--accent));
 }
+
+.captcha-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 21, 38, 0.65);
+  padding: 1rem;
+}
+
+.captcha-modal.open {
+  display: flex;
+}
+
+.captcha-card {
+  width: min(95vw, 420px);
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.25rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.26);
+}
+
+.captcha-card h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.1rem;
+}
+
+.captcha-card p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
